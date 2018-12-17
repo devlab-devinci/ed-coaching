@@ -1,6 +1,6 @@
 # Guide d'installation
 
-**ATTENTION:** Les fichiers de ce repository sont à pull dans le dossier *wp-content/themes/edcoachtheme* d'un projet Wordpress configuré au préalable (WordPress 4.9.9).
+**ATTENTION:** Ce repository est à pull dans le dossier *wp-content/themes* d'un projet Wordpress configuré au préalable (WordPress 4.9.9).
 
 
 
