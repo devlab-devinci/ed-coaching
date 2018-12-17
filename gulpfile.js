@@ -16,18 +16,15 @@ const gulp = require('gulp');
 
 const autoprefixer = require('autoprefixer');
 const merge = require('merge-stream');
-const stylish = require('jshint-stylish');
-const path = require('path');
-const fs = require('fs');
 
 
 gulp.task('default', ['build']);
 
 // Style config
-gulp.task('sass:style', function () {
-    return sassTask('style');
+gulp.task('scss:style', function () {
+    return scssTask('style');
 });
-gulp.task('sass', groupTasks('sass:'));
+gulp.task('scss', groupTasks('scss:'));
 
 // Script config
 gulp.task('scripts:main', function() {
@@ -40,7 +37,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', ['clean'], function(){
-    gulp.start(['scripts', 'sass']);
+    gulp.start(['scripts', 'scss']);
 });
 
 gulp.task('watch', function () {
@@ -78,7 +75,7 @@ function err(error) {
     this.emit('end');
 }
 
-function sassTask(name) {
+function scssTask(name) {
     let dest = srcFiles.stylesheets[name].dest;
     let source = gulp.src(srcFiles.stylesheets[name].files)
         .pipe(plumber())

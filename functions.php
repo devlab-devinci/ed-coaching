@@ -398,34 +398,11 @@ function edcoaching_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'edcoaching-style', get_theme_file_uri( '/dist/css/global.min.css' ), array(), null );
 
-	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
-	// TODO: IE9 Gestion - WP Basic
-//	if ( is_customize_preview() ) {
-//		wp_enqueue_style( 'edcoaching-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'edcoaching-style' ), '1.0' );
-//		wp_style_add_data( 'edcoaching-ie9', 'conditional', 'IE 9' );
-//	}
-
-	// Load the Internet Explorer 8 specific stylesheet.
-    // TODO: IE8 Gestion - WP Basic
-//	wp_enqueue_style( 'edcoaching-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'edcoaching-style' ), '1.0' );
-//	wp_style_add_data( 'edcoaching-ie8', 'conditional', 'lt IE 9' );
-
 	$edcoaching_l10n = array(
 		'quote'          => edcoaching_get_svg( array( 'icon' => 'quote-right' ) ),
 	);
 
-// TODO: Navigation control - WP Basic
-//	if ( has_nav_menu( 'top' ) ) {
-//		wp_enqueue_script( 'edcoaching-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0', true );
-//		$edcoaching_l10n['expand']         = __( 'Expand child menu', 'edcoaching' );
-//		$edcoaching_l10n['collapse']       = __( 'Collapse child menu', 'edcoaching' );
-//		$edcoaching_l10n['icon']           = edcoaching_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
-//	}
-
 	wp_enqueue_script( 'edcoaching-global', get_theme_file_uri( '/dist/js/main.min.js' ), false, 0, true );
-
-// TODO: Call JQuery - WP Basic
-//	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
 
 	wp_localize_script( 'edcoaching-skip-link-focus-fix', 'edcoachingScreenReaderText', $edcoaching_l10n );
 
