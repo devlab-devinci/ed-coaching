@@ -25,7 +25,7 @@ Après activation du thème, la homepage du Wordpress doit afficher une page ent
 * Compilation des fichiers SCSS uniquement
 <pre>gulp scss</pre>
 
-* Suppression des fichiers compilé
+* Suppression des fichiers compilés
 <pre>gulp clean</pre>
 
 * Activation du stream pour compilation continue
