@@ -514,22 +514,6 @@ function edcoaching_widget_tag_cloud_args( $args ) {
 add_filter( 'widget_tag_cloud_args', 'edcoaching_widget_tag_cloud_args' );
 
 
-// Custom page type
-function create_post_type() {
-	register_post_type( 'temoignage',
-		array(
-			'labels' => array(
-				'name' => __( 'Temoignage' ),
-				'singular_name' => __( 'Temoignage' )
-			),
-			'public' => true,
-			'has_archive' => true,
-		)
-	);
-}
-add_action( 'init', 'create_post_type' );
-
-
 // Remember password
 add_filter( 'login_form_bottom', 'lien_mot_de_passe_perdu' );
 function lien_mot_de_passe_perdu( $formbottom ) {
@@ -562,3 +546,19 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+
+// Custom page type
+function create_post_type() {
+	register_post_type( 'temoignage',
+		array(
+			'labels' => array(
+				'name' => __( 'Temoignage' ),
+				'singular_name' => __( 'Temoignage' )
+			),
+			'public' => true,
+			'has_archive' => true,
+		)
+	);
+}
+add_action( 'init', 'create_post_type' );

@@ -1,3 +1,8 @@
+* php 7.2.1
+* bdd MySQL
+* node v10.13.0
+* yarn 1.9.4
+
 # Guide d'installation
 
 **ATTENTION:** Ce repository est à pull dans le dossier *wp-content/themes* d'un projet Wordpress configuré au préalable (WordPress 4.9.9).
