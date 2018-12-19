@@ -41,7 +41,7 @@ gulp.task('build', ['clean'], function(){
 });
 
 gulp.task('watch', function () {
-    gulp.watch(srcFiles.stylesheets.style.watch, ['sass']);
+    gulp.watch(srcFiles.stylesheets.style.watch, ['scss']);
     gulp.watch(srcFiles.scripts.main.watch, ['scripts']);
 });
 
@@ -57,8 +57,8 @@ let srcFiles = {
 
     stylesheets: {
         style : {
-            files: ['assets/css/global.scss'],
-            watch: ['assets/css/**/*.scss'],
+            files: ['assets/scss/global.scss'],
+            watch: ['assets/scss/**/*.scss'],
             dest: 'dist/css'
         }
     },

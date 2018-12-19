@@ -5,6 +5,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package WordPress
+ * @subpackage Twenty_Seventeen
  * @since 1.0
  */
 

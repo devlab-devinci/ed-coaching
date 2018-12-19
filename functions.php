@@ -398,13 +398,7 @@ function edcoaching_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'edcoaching-style', get_theme_file_uri( '/dist/css/global.min.css' ), array(), null );
 
-	$edcoaching_l10n = array(
-		'quote'          => edcoaching_get_svg( array( 'icon' => 'quote-right' ) ),
-	);
-
 	wp_enqueue_script( 'edcoaching-global', get_theme_file_uri( '/dist/js/main.min.js' ), false, 0, true );
-
-	wp_localize_script( 'edcoaching-skip-link-focus-fix', 'edcoachingScreenReaderText', $edcoaching_l10n );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -521,44 +515,7 @@ function lien_mot_de_passe_perdu( $formbottom ) {
 	return $formbottom;
 }
 
-
-/**
- * Implement the Custom Header feature.
- */
-require get_parent_theme_file_path( '/inc/custom-header.php' );
-
-/**
- * Custom template tags for this theme.
- */
-require get_parent_theme_file_path( '/inc/template-tags.php' );
-
-/**
- * Additional features to allow styling of the templates.
- */
-require get_parent_theme_file_path( '/inc/template-functions.php' );
-
-/**
- * Customizer additions.
- */
-require get_parent_theme_file_path( '/inc/customizer.php' );
-
-/**
- * SVG icons functions and filters.
- */
-require get_parent_theme_file_path( '/inc/icon-functions.php' );
-
-
-// Custom page type
-function create_post_type() {
-	register_post_type( 'temoignage',
-		array(
-			'labels' => array(
-				'name' => __( 'Temoignage' ),
-				'singular_name' => __( 'Temoignage' )
-			),
-			'public' => true,
-			'has_archive' => true,
-		)
-	);
-}
-add_action( 'init', 'create_post_type' );
+require_once(get_template_directory() . '/inc/woocommerce-functions.php');
+require_once(get_template_directory() . '/inc/taxonomy-type.php');
+require_once(get_template_directory() . '/inc/posts-type.php');
+require_once(get_template_directory() . '/inc/template-tags.php');
