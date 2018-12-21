@@ -3,7 +3,6 @@
  * Displays top navigation
  *
  * @package WordPress
- * @since 1.0
  * @version 1.2
  */
 
@@ -11,7 +10,14 @@
 
 <nav id="site-navigation" class="main-navigation" role="navigation"">
    <?php
-       wp_nav_menu( array(
-            'menu' => 'Top Navbar'  ));
+       if ( ! is_user_logged_in() ) {
+	       wp_nav_menu( array(
+		       'menu' => 'Navigation deconnecte'
+	       ));
+       } else {
+	       wp_nav_menu( array(
+		       'menu' => 'Navigation connecte'
+	       ));
+       }
    ?>
 </nav><!-- #site-navigation -->

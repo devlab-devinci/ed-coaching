@@ -507,15 +507,9 @@ function edcoaching_widget_tag_cloud_args( $args ) {
 }
 add_filter( 'widget_tag_cloud_args', 'edcoaching_widget_tag_cloud_args' );
 
-
-// Remember password
-add_filter( 'login_form_bottom', 'lien_mot_de_passe_perdu' );
-function lien_mot_de_passe_perdu( $formbottom ) {
-	$formbottom .= '<a href="' . wp_lostpassword_url() . '">Mot de passe perdu ?</a>';
-	return $formbottom;
-}
-
-require_once(get_template_directory() . '/inc/woocommerce-functions.php');
+require_once(get_template_directory() . '/inc/login-form.php');
+require_once(get_template_directory() . '/inc/register-form.php');
 require_once(get_template_directory() . '/inc/taxonomy-type.php');
 require_once(get_template_directory() . '/inc/posts-type.php');
 require_once(get_template_directory() . '/inc/template-tags.php');
+require_once(get_template_directory() . '/inc/woocommerce-functions.php');

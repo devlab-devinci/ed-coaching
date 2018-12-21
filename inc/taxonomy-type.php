@@ -37,6 +37,37 @@ function motivation_tags_taxononmy() {
 	register_taxonomy( 'motivation_tags', array( 'motivation' ), $args );
 
 }
-
-// Hook into the 'init' action
 add_action( 'init', 'motivation_tags_taxononmy', 0 );
+
+function coach_tags_taxononmy() {
+
+	$labels = array(
+		'name'                       => 'Coach Tag',
+		'singular_name'              => 'Coach Tag',
+		'menu_name'                  => 'Tags',
+		'all_items'                  => 'All Coach Tags',
+		'parent_item'                => 'Parent Coach Tag',
+		'parent_item_colon'          => 'Parent Coach Tag:',
+		'new_item_name'              => 'New Motivation Tag',
+		'add_new_item'               => 'Add New Coach Tag',
+		'edit_item'                  => 'Edit Coach Tag',
+		'update_item'                => 'Update Coach Tag',
+		'separate_items_with_commas' => 'Separate Coach Tags with commas',
+		'search_items'               => 'Search Coach Tags',
+		'add_or_remove_items'        => 'Add or remove Motivation Tags',
+		'choose_from_most_used'      => 'Choose from the most used Motivation Tags',
+		'not_found'                  => 'Not Found',
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'coach_tags', array( 'coach' ), $args );
+
+}
+add_action( 'init', 'coach_tags_taxononmy', 0 );
