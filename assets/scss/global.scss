@@ -1,6 +1,103 @@
+@import "components/mixin";
 @import "components/reset";
+@import "components/variable";
 
 html, body, #page {
   height: 100%;
   width: 100%;
 }
+
+.site {
+  position: relative;
+}
+
+/*
+ * NAVIGATION
+ */
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+
+  //position: $nav-position;
+  z-index: $nav-index;
+  width: 100%;
+  height: $nav-height;
+  background-color: $nav-bg-color;
+
+  @include small-device {
+    flex-flow: column nowrap;
+    position: inherit;
+    height: auto;
+  }
+
+  .nav-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%; width: 100%;
+  }
+
+  .nav-left-items {
+    flex: $nav-left-width;
+    min-width: $nav-left-min-with;
+    height: 100%;
+    .nav-wrap {
+      justify-content: center; }
+
+    @include small-device {
+      width: 100%;
+      padding: 30px 0;
+    }
+  }
+
+  .nav-right-items {
+    flex: $nav-right-width;
+
+    nav, .menu-navigation-connecte-container {
+      width: 100%;
+
+      #menu-navigation-connecte {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+
+        @include small-device {
+          flex-flow: column wrap;
+          justify-content: center;
+        }
+
+        .menu-item {
+          border:{
+            left: $nav-right-item-border; right: $nav-right-item-border; }
+          padding: $nav-right-item-padding;
+
+          @include small-device {
+            border: inherit;
+            &:after, &:before {
+              content: "";
+              display: block;
+              height: $nav-right-split-m-height;
+              width: $nav-right-split-m-width;
+              margin: $nav-right-split-m-margin;
+              background-color: #000;
+            }
+          }
+
+          &:first-of-type,
+          &:last-of-type {
+            border: inherit;
+            &:after, &:before { display: none; }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+ * HOMEPAGE
+ */
+
+
