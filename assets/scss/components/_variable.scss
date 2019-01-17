@@ -25,3 +25,26 @@ $nav-bg-color: rgba(0, 0, 0, 0.5);
     $nav-right-split-m-height: 1px;
     $nav-right-split-m-width: 15px;
     $nav-right-split-m-margin: 10px auto;
+
+
+/*
+ Homepage content
+  */
+
+  // Homepage banner
+  $home-banner-height: 100vh;
+    // Aside content
+    $hban-title-padding: 40px 0;
+    $hban-list-item-padding: 0 20px;
+
+  // Homepage activity
+  $home-activity-height: 90vh;
+
+  // Hompage contact
+  $home-contact-height: 10vh;
+
+  // Hompage coach
+  $home-coach-height: 100vh;
+
+  // Hompage partner
+  $home-partner-height: 25vh;

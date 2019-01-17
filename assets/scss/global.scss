@@ -2,12 +2,13 @@
 @import "components/reset";
 @import "components/variable";
 
-html, body, #page {
+html, body {
   height: 100%;
   width: 100%;
 }
 
 .site {
+  height: 100%; width: 100%;
   position: relative;
 }
 
@@ -15,11 +16,11 @@ html, body, #page {
  * NAVIGATION
  */
 
-header {
+.site-header {
   display: flex;
   flex-flow: row wrap;
 
-  //position: $nav-position;
+  position: $nav-position;
   z-index: $nav-index;
   width: 100%;
   height: $nav-height;
@@ -99,5 +100,108 @@ header {
 /*
  * HOMEPAGE
  */
+
+.site-content-contain .site-content main {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .home-element {
+    border:{ // TODO: temp border
+      top: 0.5px solid #000;
+      bottom: 0.5px solid #000;
+    }
+
+    &.banner {
+      box-sizing: border-box;
+      padding-top: $nav-height;
+      height: $home-banner-height; width: 100%;
+
+      @include small-device {
+        padding-top: inherit;
+        height: inherit;
+      }
+    }
+
+    &.activity {
+      height: $home-activity-height;
+
+      @include small-device {
+        height: inherit;
+      }
+
+      .wrap {
+        display: flex;
+        flex-flow: column nowrap;
+
+        height: 100%;
+
+        article, aside {
+          display: flex;
+          flex: 1;
+        }
+
+        aside {
+          align-items: center;
+          justify-content: center;
+
+          .banner-title-content {
+            text-align: center;
+            padding: $hban-title-padding;
+            max-width: 500px;
+          }
+        }
+
+        article {
+          align-items: flex-start;
+
+          .banner-list-content {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+
+            li {
+              flex: 1;
+              padding: $hban-list-item-padding;
+              text-align: center;
+
+              h3 {
+                padding: 20px 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.contact {
+      height: $home-contact-height;
+
+      @include small-device {
+        height: inherit;
+      }
+    }
+
+    &.coach {
+      height: $home-coach-height;
+
+      @include small-device {
+        height: inherit;
+      }
+    }
+
+    &.partner {
+      height: $home-partner-height;
+
+      @include small-device {
+        height: inherit;
+      }
+    }
+  }
+
+}
+
+
+
 
 
