@@ -35,16 +35,27 @@ $nav-bg-color: rgba(0, 0, 0, 0.5);
   $home-banner-height: 100vh;
     // Aside content
     $hban-title-padding: 40px 0;
-    $hban-list-item-padding: 0 20px;
 
   // Homepage activity
   $home-activity-height: 90vh;
 
-  // Hompage contact
+  // Homepage contact
   $home-contact-height: 10vh;
+  $home-contact-m-padding: 10px 0;
 
-  // Hompage coach
+  // Homepage coach
   $home-coach-height: 100vh;
 
-  // Hompage partner
+  // Homepage partner
   $home-partner-height: 25vh;
+
+
+/*
+  Generic content
+ */
+
+  // List element
+  $list-min-width: 25vw;
+  $list-item-padding: 0 20px;
+  $list-item-title-padding: 20px 0;
+  $list-item-title-fsize: 16px;
