@@ -55,10 +55,11 @@ html, body {
   .nav-right-items {
     flex: $nav-right-width;
 
-    nav, .menu-navigation-connecte-container {
+    nav, .menu-navigation-connecte-container, .menu-navigation-deconnecte-container {
       width: 100%;
 
-      #menu-navigation-connecte {
+      #menu-navigation-connecte,
+      #menu-navigation-deconnecte {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
