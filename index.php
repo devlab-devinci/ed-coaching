@@ -29,7 +29,6 @@ get_header(); ?>
                 the_title();
                 echo '<div class="entry-content">';
                     the_content();
-                    echo '<p>Connard</p>';
                     echo '</div>';
                 endwhile;
             ?>

@@ -5,7 +5,7 @@
 
 # Guide d'installation
 
-**ATTENTION:** Ce repository est à pull dans le dossier *wp-content/themes* d'un projet Wordpress configuré au préalable (WordPress 4.9.9).
+**ATTENTION:** Ce repository est à pull dans le dossier *wp-content/themes* d'un projet Wordpress configuré au préalable (WordPress 5.0.3).
 
 
 
