@@ -14,7 +14,7 @@ get_header(); ?>
 	<div class="wrap">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
-				<p>test single motivation</p>
+                <h2><?php the_title() ?></h2>
 			</main><!-- #main -->
 		</div><!-- #primary -->
 	</div><!-- .wrap -->

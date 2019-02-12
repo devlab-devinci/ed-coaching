@@ -129,48 +129,48 @@ function temoignage_post_type() {
 }
 add_action( 'init', 'temoignage_post_type', 0 );
 
-function coach_post_type() {
+function partenaire_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Coachs', 'Post Type General Name', 'coach' ),
-		'singular_name'         => _x( 'Coach', 'Post Type Singular Name', 'coach' ),
-		'menu_name'             => __( 'Coachs', 'coach' ),
-		'name_admin_bar'        => __( 'Coach', 'coach' ),
-		'archives'              => __( 'Item Archives', 'coach' ),
-		'attributes'            => __( 'Item Attributes', 'coach' ),
-		'parent_item_colon'     => __( 'Parent Item:', 'coach' ),
-		'all_items'             => __( 'All Items', 'coach' ),
-		'add_new_item'          => __( 'Add New Item', 'coach' ),
-		'add_new'               => __( 'Add New', 'coach' ),
-		'new_item'              => __( 'New Item', 'coach' ),
-		'edit_item'             => __( 'Edit Item', 'coach' ),
-		'update_item'           => __( 'Update Item', 'coach' ),
-		'view_item'             => __( 'View Item', 'coach' ),
-		'view_items'            => __( 'View Items', 'coach' ),
-		'search_items'          => __( 'Search Item', 'coach' ),
-		'not_found'             => __( 'Not found', 'coach' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'coach' ),
-		'featured_image'        => __( 'Featured Image', 'coach' ),
-		'set_featured_image'    => __( 'Set featured image', 'coach' ),
-		'remove_featured_image' => __( 'Remove featured image', 'coach' ),
-		'use_featured_image'    => __( 'Use as featured image', 'coach' ),
-		'insert_into_item'      => __( 'Insert into item', 'coach' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'coach' ),
-		'items_list'            => __( 'Items list', 'coach' ),
-		'items_list_navigation' => __( 'Items list navigation', 'coach' ),
-		'filter_items_list'     => __( 'Filter items list', 'coach' ),
+		'name'                  => _x( 'Partenaires', 'Post Type General Name', 'partenaire' ),
+		'singular_name'         => _x( 'Partenaire', 'Post Type Singular Name', 'partenaire' ),
+		'menu_name'             => __( 'Partenaires', 'partenaire' ),
+		'name_admin_bar'        => __( 'Partenaire', 'partenaire' ),
+		'archives'              => __( 'Item Archives', 'partenaire' ),
+		'attributes'            => __( 'Item Attributes', 'partenaire' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'partenaire' ),
+		'all_items'             => __( 'All Items', 'partenaire' ),
+		'add_new_item'          => __( 'Add New Item', 'partenaire' ),
+		'add_new'               => __( 'Add New', 'partenaire' ),
+		'new_item'              => __( 'New Item', 'partenaire' ),
+		'edit_item'             => __( 'Edit Item', 'partenaire' ),
+		'update_item'           => __( 'Update Item', 'partenaire' ),
+		'view_item'             => __( 'View Item', 'partenaire' ),
+		'view_items'            => __( 'View Items', 'partenaire' ),
+		'search_items'          => __( 'Search Item', 'partenaire' ),
+		'not_found'             => __( 'Not found', 'partenaire' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'partenaire' ),
+		'featured_image'        => __( 'Featured Image', 'partenaire' ),
+		'set_featured_image'    => __( 'Set featured image', 'partenaire' ),
+		'remove_featured_image' => __( 'Remove featured image', 'partenaire' ),
+		'use_featured_image'    => __( 'Use as featured image', 'partenaire' ),
+		'insert_into_item'      => __( 'Insert into item', 'partenaire' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'partenaire' ),
+		'items_list'            => __( 'Items list', 'partenaire' ),
+		'items_list_navigation' => __( 'Items list navigation', 'partenaire' ),
+		'filter_items_list'     => __( 'Filter items list', 'partenaire' ),
 	);
 	$rewrite = array(
-		'slug'                  => 'coach',
+		'slug'                  => 'partenaire',
 		'with_front'            => true,
 		'pages'                 => true,
 		'feeds'                 => true,
 	);
 	$args = array(
-		'label'                 => __( 'Coach', 'coach' ),
+		'label'                 => __( 'Partenaire', 'partenaire' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'custom-fields' ),
-		'taxonomies'            => array( 'coach_tags' ),
+		'taxonomies'            => array( 'partenaire_tags' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -185,13 +185,13 @@ function coach_post_type() {
 		'rewrite'               => $rewrite,
 		'capability_type'       => 'post',
 	);
-	register_post_type( 'coach', $args );
+	register_post_type( 'partenaire', $args );
 
 }
-add_action( 'init', 'coach_post_type', 0 );
+add_action( 'init', 'partenaire_post_type', 0 );
 
 // Hide default post types
-function edcoaching_remove_menu_items() {
+function edpartenaireing_remove_menu_items() {
 	remove_menu_page( 'edit.php' );
 }
-add_action( 'admin_menu', 'edcoaching_remove_menu_items' );
+add_action( 'admin_menu', 'edpartenaireing_remove_menu_items' );

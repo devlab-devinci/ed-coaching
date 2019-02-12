@@ -39,21 +39,21 @@ function motivation_tags_taxononmy() {
 }
 add_action( 'init', 'motivation_tags_taxononmy', 0 );
 
-function coach_tags_taxononmy() {
+function partenaire_tags_taxononmy() {
 
 	$labels = array(
-		'name'                       => 'Coach Tag',
-		'singular_name'              => 'Coach Tag',
+		'name'                       => 'Partenaire Tag',
+		'singular_name'              => 'Partenaire Tag',
 		'menu_name'                  => 'Tags',
-		'all_items'                  => 'All Coach Tags',
-		'parent_item'                => 'Parent Coach Tag',
-		'parent_item_colon'          => 'Parent Coach Tag:',
+		'all_items'                  => 'All Partenaire Tags',
+		'parent_item'                => 'Parent Partenaire Tag',
+		'parent_item_colon'          => 'Parent Partenaire Tag:',
 		'new_item_name'              => 'New Motivation Tag',
-		'add_new_item'               => 'Add New Coach Tag',
-		'edit_item'                  => 'Edit Coach Tag',
-		'update_item'                => 'Update Coach Tag',
-		'separate_items_with_commas' => 'Separate Coach Tags with commas',
-		'search_items'               => 'Search Coach Tags',
+		'add_new_item'               => 'Add New Partenaire Tag',
+		'edit_item'                  => 'Edit Partenaire Tag',
+		'update_item'                => 'Update Partenaire Tag',
+		'separate_items_with_commas' => 'Separate Partenaire Tags with commas',
+		'search_items'               => 'Search Partenaire Tags',
 		'add_or_remove_items'        => 'Add or remove Motivation Tags',
 		'choose_from_most_used'      => 'Choose from the most used Motivation Tags',
 		'not_found'                  => 'Not Found',
@@ -67,7 +67,7 @@ function coach_tags_taxononmy() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'coach_tags', array( 'coach' ), $args );
+	register_taxonomy( 'partenaire_tags', array( 'partenaire' ), $args );
 
 }
-add_action( 'init', 'coach_tags_taxononmy', 0 );
+add_action( 'init', 'partenaire_tags_taxononmy', 0 );

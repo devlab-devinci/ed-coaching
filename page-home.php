@@ -10,46 +10,71 @@ get_header(); ?>
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
             <section class="home-element banner">
-
+                <div class="banner-bckg">
+                    <?php
+                    $bckg = get_field('background_edcoaching');
+                    if($bckg): ?>
+                        <img src="<?php echo $bckg['url']?>" alt="<?php echo $bckg['alt']; ?>"/>
+                    <?php endif; ?>
+                </div>
+                <div class="banner-content">
+                    <div class="wrap-content">
+                        <div class="sb left">
+                            <div class="sb-top"></div>
+                            <div class="sb-mid orange left">
+                                <div class="sb-round left"><div></div></div>
+                            </div>
+                        </div>
+                        <h1 class="content"><?php the_title() ?></h1>
+                    </div>
+                    <div class="wrap-content">
+                        <p><?php the_field('description_edcoaching') ?></p>
+                        <div class="sb right">
+                            <div class="sb-top"></div>
+                            <div class="sb-mid red right">
+                                <div class="sb-round right"><div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section class="home-element activity">
                 <div class="wrap-list">
                     <aside>
                         <div class="title-content">
                             <h2>Découvrez nos activités</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis nulla mattis, ultricies nunc fringilla, faucibus nisi. Aenean scelerisque tortor auctor, hendrerit orci id, ornare arcu. Sed tempor turpis eu enim pellentesque auctor. Fusce non hendrerit neque. Quisque a ex sem. In ultrices massa ac risus egestas, id rutrum nunc vehicula. </p>
+                            <p><?php the_field('description_activite') ?></p>
                         </div>
                     </aside>
                     <article>
                         <ul class="list-content">
-                            <li>
-                                <img src="" alt="pict 1">
-                                <h3>Booking</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 2">
-                                <h3>Coaching</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 3">
-                                <h3>Shopping</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 4">
-                                <h3>Achieve</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
+	                        <?php
+	                        for ($act = 1; $act<=3; $act++):
+		                        $element = get_field('activite_'.$act);
+		                        if($element): ?>
+                                    <li>
+                                        <div class="wrap-content">
+                                            <div class="sb left">
+                                                <div class="sb-top"></div>
+                                                <div class="sb-mid white left">
+                                                    <div class="sb-round left"><div></div></div>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <img src="<?php echo $element['icone']['url']?>" alt="<?php echo $element['icone']['alt']; ?>"/>
+                                            </div>
+                                        </div>
+                                        <h3><?php echo $element['libelle']?></h3>
+                                        <p><?php echo $element['description']?></p>
+                                    </li>
+		                        <?php endif; endfor;?>
                         </ul>
                     </article>
                 </div>
             </section>
             <div class="home-element contact">
                 <div class="wrap">
-                    <h3>Pour nous contacter rien de plus simple</h3>
-                    <button>Contactez-nous</button>
+                    <h3 class="content">Pour nous contacter rien de plus simple <a href="#">c'est ici</a></h3>
                 </div>
             </div>
             <section class="home-element coach">
@@ -61,31 +86,16 @@ get_header(); ?>
                     </aside>
                     <article>
                         <ul class="list-content">
-                            <li>
-                                <img src="" alt="pict 1">
-                                <h3>Edouard</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 2">
-                                <h3>Gauthier</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 3">
-                                <h3>Remi</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 4">
-                                <h3>Remi</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 5">
-                                <h3>Remi</h3>
-                                <p>Cras quis urna quis nibh commodo molestie sit amet non nunc. Phasellus lacus purus, vestibulum in tincidunt vitae, elementum sit amet sem.</p>
-                            </li>
+		                    <?php
+                            for ($c = 1; $c<=4; $c++):
+                                $element = get_field('coach_'.$c);
+                                if($element): ?>
+                                    <li>
+                                        <img src="<?php echo $element['avatar']['url']?>" alt="<?php echo $element['avatar']['alt']; ?>"/>
+                                        <h3><?php echo $element['prenom']?></h3>
+                                        <p><?php echo $element['description']?></p>
+                                    </li>
+                            <?php endif; endfor;?>
                         </ul>
                     </article>
                 </div>
@@ -99,18 +109,15 @@ get_header(); ?>
                     </aside>
                     <article>
                         <ul class="list-content">
-                            <li>
-                                <img src="" alt="pict 1">
-                                <h3>Barki's talent</h3>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 2">
-                                <h3>Partenaires 2</h3>
-                            </li>
-                            <li>
-                                <img src="" alt="pict 3">
-                                <h3>Nu Skin</h3>
-                            </li>
+		                    <?php
+		                    $args = array( 'post_type' => 'partenaire', 'posts_per_page' => 3 );
+		                    $loop = new WP_Query( $args );
+		                    while ( $loop->have_posts() ) : $loop->the_post();
+			                    echo '<li>';
+			                    $image = get_field('logo'); $size = 'full';
+			                    if( $image ) echo wp_get_attachment_image( $image, $size ) . '</li>';
+		                    endwhile;
+		                    ?>
                         </ul>
                     </article>
                 </div>
