@@ -18,7 +18,7 @@ get_header(); ?>
                     <?php endif; ?>
                 </div>
                 <div class="banner-content">
-                    <div class="wrap-content">
+                    <div class="wrap-sb">
                         <div class="sb left">
                             <div class="sb-top"></div>
                             <div class="sb-mid orange left">
@@ -27,7 +27,7 @@ get_header(); ?>
                         </div>
                         <h1 class="content"><?php the_title() ?></h1>
                     </div>
-                    <div class="wrap-content">
+                    <div class="wrap-sb">
                         <p><?php the_field('description_edcoaching') ?></p>
                         <div class="sb right">
                             <div class="sb-top"></div>
@@ -53,7 +53,7 @@ get_header(); ?>
 		                        $element = get_field('activite_'.$act);
 		                        if($element): ?>
                                     <li>
-                                        <div class="wrap-content">
+                                        <div class="wrap-sb">
                                             <div class="sb left">
                                                 <div class="sb-top"></div>
                                                 <div class="sb-mid white left">
@@ -78,26 +78,35 @@ get_header(); ?>
                 </div>
             </div>
             <section class="home-element coach">
-                <div class="wrap-list">
-                    <aside>
-                        <div class="title-content">
-                            <h2>Nos Coachs</h2>
-                        </div>
-                    </aside>
-                    <article>
-                        <ul class="list-content">
-		                    <?php
-                            for ($c = 1; $c<=4; $c++):
-                                $element = get_field('coach_'.$c);
-                                if($element): ?>
-                                    <li>
-                                        <img src="<?php echo $element['avatar']['url']?>" alt="<?php echo $element['avatar']['alt']; ?>"/>
-                                        <h3><?php echo $element['prenom']?></h3>
-                                        <p><?php echo $element['description']?></p>
-                                    </li>
-                            <?php endif; endfor;?>
-                        </ul>
-                    </article>
+                <div class="banner-bckg">
+		            <?php
+		            $bckg = get_field('background_coach');
+		            if($bckg): ?>
+                        <img src="<?php echo $bckg['url']?>" alt="<?php echo $bckg['alt']; ?>"/>
+		            <?php endif; ?>
+                </div>
+                <div class="banner-content">
+                    <div class="wrap-list">
+                        <aside>
+                            <div class="title-content">
+                                <h2>Nos Coachs</h2>
+                            </div>
+                        </aside>
+                        <article>
+                            <ul class="list-content">
+				                <?php
+				                for ($c = 1; $c<=4; $c++):
+					                $element = get_field('coach_'.$c);
+					                if($element): ?>
+                                        <li>
+                                            <img src="<?php echo $element['avatar']['url']; ?>" alt="<?php echo $element['avatar']['alt']; ?>"/>
+                                            <h3><?php echo $element['prenom']; ?></h3>
+                                            <p><?php echo $element['description']; ?></p>
+                                        </li>
+					                <?php endif; endfor;?>
+                            </ul>
+                        </article>
+                    </div>
                 </div>
             </section>
             <section class="home-element partner">
@@ -112,12 +121,14 @@ get_header(); ?>
 		                    <?php
 		                    $args = array( 'post_type' => 'partenaire', 'posts_per_page' => 3 );
 		                    $loop = new WP_Query( $args );
-		                    while ( $loop->have_posts() ) : $loop->the_post();
-			                    echo '<li>';
-			                    $image = get_field('logo'); $size = 'full';
-			                    if( $image ) echo wp_get_attachment_image( $image, $size ) . '</li>';
-		                    endwhile;
-		                    ?>
+		                    while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                                <li> <?php
+                                    $image = get_field('logo'); $size = 'full';
+                                    if($image): ?>
+                                        <img src="<?php echo $image['url']?>" alt="<?php echo $image['alt']; ?>"/>
+                                    <?php endif; ?>
+                                </li>
+		                    <?php endwhile; ?>
                         </ul>
                     </article>
                 </div>

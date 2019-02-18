@@ -24,6 +24,7 @@ html, body {
   z-index: $nav-index;
   width: 100%;
   height: $nav-height;
+  padding: 25px 0 0;
 
   @include small-device {
     flex-flow: column nowrap;
@@ -54,34 +55,93 @@ html, body {
   .nav-right-items {
     flex: $nav-right-width;
 
-    nav, .menu-navigation-connecte-container, .menu-navigation-deconnecte-container {
+    nav {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      align-items: center;
       width: 100%;
 
-      #menu-navigation-connecte,
-      #menu-navigation-deconnecte {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-end;
-        align-items: center;
+      .menu-navigation-header-container {
 
-        @include small-device {
-          flex-flow: column wrap;
-          justify-content: center;
-        }
-
-        .menu-item {
-          padding: $nav-right-item-padding;
+        #menu-navigation-header {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-end;
+          align-items: center;
 
           @include small-device {
-            border: inherit;
+            flex-flow: column wrap;
+            justify-content: center;
           }
 
-          a {
-            @extend %oswald-medium;
-            @include font-size(18px);
-            text:{decoration: none; transform: uppercase}
-            letter-spacing: 0.9px;
-            color: $color-white;
+          .menu-item {
+            padding: $nav-right-item-padding;
+
+            @include small-device {
+              border: inherit;
+            }
+
+            a {
+              @extend %oswald-medium;
+              @include font-size(18px);
+              text:{decoration: none; transform: uppercase}
+              letter-spacing: 0.9px;
+              color: $color-white;
+            }
+          }
+        }
+      }
+
+      .social-icon {
+        $social-margin: 35px;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        position: relative;
+        padding: 0 0 0 ($social-margin +2);
+        margin: 0 $social-margin;
+
+        .social-element {
+          &:first-child {
+            margin-right: $social-margin /2;
+            &::before {
+              content: ""; display: block;
+              position: absolute;
+              left: 0; top: 50%;
+              background-color: $color-white;
+              width: 2px; height: 75%;
+              transform: translateY(-50%);
+            }
+          }
+
+          background-color: $color-red;
+          width: 30px; height: 30px;
+          border: {radius: 100%};
+        }
+      }
+
+      .login {
+        background-color: $color-red;
+        padding: 15px 40px;
+        border: { bottom-left-radius: 15px };
+
+        a {
+          color: $color-white;
+          text:{decoration: none; transform: uppercase}
+          @extend %oswald-bold;
+          @include font-size(18px);
+          letter-spacing: 0.9px;
+
+          &#link-my-account {
+            text: {align: center};
+
+            span {
+              @extend %source-sans-regular;
+              @include font-size(12px);
+            }
           }
         }
       }
@@ -111,23 +171,13 @@ html, body {
       }
 
       .banner-bckg {
-        position: absolute;
-        top: 0; left: 0;
         background-color: #000;
-        height: 100%; width: 100%;
-        img{
-          object-fit: cover;
-          width: 100%; height: 100%;
-          @include opacity(0.55);
+        img {
+          @include opacity(0.45);
         }
-        z-index: 1;
       }
 
       .banner-content {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10;
         color: $color-white;
 
         .wrap-content:first-of-type {
@@ -138,6 +188,7 @@ html, body {
           @extend %oswald-bold;
           @include font-size(75px);
           text-transform: uppercase;
+          margin-bottom: 35px;
         }
 
         p {
@@ -198,25 +249,34 @@ html, body {
     }
 
     &.contact {
-      height: $home-contact-height;
+      height: 0;
+      position: relative;
 
       .wrap {
-        height: 100%; width: 50%;
-        min-width: 250px;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
         align-items: center;
+
+        height: $home-contact-height; width: 50vw;
+        position: absolute;
+        left: 50%;
+        z-index: 20;
+        min-width: 250px;
         margin: auto;
+
         background-color: $color-red;
         border:{radius: 25px 0 25px 0}
-        transform: translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
 
         h3 {
           text:{transform: uppercase};
           @extend %source-sans-regular;
           @include font-size(21px);
           color: $color-white;
+          padding: 5px 15px;
+          text:{align: center}
+
           a {
             color: $color-white;
             text:{decoration: none}
@@ -241,33 +301,116 @@ html, body {
 
     &.coach {
       height: $home-coach-height;
+      position: relative;
 
       @include small-device {
         height: inherit;
       }
 
-      .wrap-list {
-        aside {
-          .coach-title-content {
-            text-align: center;
-            padding: $hban-title-padding;
-            max-width: 500px;
-          }
+      .banner-bckg {
+        background-color: $color-blue;
+        img {
+          @include opacity(0.15);
         }
-        article {
-          flex: 3;
+      }
+
+      .banner-content {
+        display: flex;
+        align-items: flex-end;
+        width: 75%; height: 100%;
+        margin: auto;
+
+        .wrap-list {
+          width: 100%;
+
+          aside {
+            flex: inherit;
+            align-self: flex-start;
+            padding-bottom: 10px;
+            margin-top: 100px;
+
+            .title-content {
+              max-width: 900px;
+              @extend %oswald-bold;
+              @include font-size(40px);
+              color: $color-white;
+            }
+          }
+          article {
+            position: relative;
+            background-color: $color-red;
+            width: 100%;
+
+            .list-content {
+              position: absolute;
+              width: 125%;
+              top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              margin: auto;
+
+              li {
+                $avatar-h: 100px;
+                position: relative;
+                background-color: $color-white;
+                border: {
+                  radius: 0 0 25% 0;
+                  top: solid 6px $color-orange};
+                margin: 0 calc(72px / 2) 20px;
+                min: {
+                  width: 150px;
+                }
+
+                img {
+                  position: absolute;
+                  width: 100px; height: $avatar-h;
+                  top: 0; left: 50%;
+                  border: 2px solid $color-orange { radius: 100%; };
+                  object-fit: cover;
+                  transform: translate(-50%, -50%);
+                }
+
+                h3, p {
+                  width: 80%;
+                  margin: auto;
+                }
+
+                h3 {
+                  color: $color-orange;
+                  @extend %oswald-bold;
+                  @include font-size(20px);
+                  text-align: center;
+                  margin: ($avatar-h/2)+15px auto 0;
+                }
+
+                p {
+                  @extend %source-sans-regular;
+                  @include font-size(12px);
+                  padding: 0 0 45px;
+                  text-align: center;
+                  line-height: 1.1em;
+                }
+              }
+            }
+          }
         }
       }
     }
 
     &.partner {
       height: $home-partner-height;
+      padding: 0 0 15px;
 
-      .wrap-list article .list-content {
-        max-width: 600px;
-        margin: auto;
+      .wrap-list {
 
-        h3 {
+        aside .title-content h2 {
+          @extend %oswald-medium;
+          @include font-size(25px);
+          color: $color-orange;
+        }
+
+        article .list-content {
+          max-width: 600px;
+          margin: auto;
         }
       }
 
@@ -275,9 +418,94 @@ html, body {
         height: inherit;
       }
     }
+
+    // Global for home element
+    .banner-bckg {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%; width: 100%;
+      img{
+        object-fit: cover;
+        width: 100%; height: 100%;
+      }
+      z-index: 1;
+    }
+
+    .banner-content {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
   }
 }
 
+/*
+* LOGIN
+*/
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; height: 100vh;
+  background-color: $color-orange;
+
+  .form-content {
+    padding: 25px 10px;
+    background-color: $color-white;
+    border: { bottom-right-radius: 25px };
+
+    form {
+      min-width: 250px;
+      max-width: 500px;
+      padding: 0 50px;
+
+      p {
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 10px 0 25px;
+        @extend %source-sans-regular;
+        @include font-size(12px);
+        text:{ transform: uppercase }
+
+        &.login-remember {
+          @extend %source-sans-regular;
+        }
+
+        &.login-submit input {
+          @include font-size(18px);
+          text: {transform: uppercase}
+          color: $color-white;
+          background-color: $color-blue;
+          cursor: pointer;
+          padding: 10px 0;
+        }
+
+        input {
+          margin-top: 10px;
+          border: {
+            bottom: 2px solid $color-blue;
+            top: none; left: none; right: none;
+          };
+          @extend %oswald-medium;
+          @include font-size(20px);
+        }
+      }
+      a:last-child {
+        @extend %visuallyhidden;
+      }
+    }
+  }
+}
+
+/*
+ * FOOTER
+ */
+footer {
+  background-color: $color-black;
+  color: $color-white;
+}
 
 /*
  * GENERIC ELEMENT
@@ -312,7 +540,6 @@ html, body {
       display: flex;
       flex-flow: row wrap;
       align-items: center;
-      justify-content: space-between;
       min-width: $list-min-width;
 
       li {
@@ -331,7 +558,7 @@ html, body {
   }
 }
 
-.wrap-content {
+.wrap-sb {
   position: relative;
   padding: 0 ($sb-width + 25px);
 
