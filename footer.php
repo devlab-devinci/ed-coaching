@@ -19,16 +19,27 @@
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="wrap">
 				<div class="footer-left-navigation">
-                    <img src="" alt="pict 1">
-                    <div class="footer-navigation-content">
-                        <p>Région parisienne +33 6 29 25 29 24</p>
+                    <div class="wrap-sb">
+                        <div class="sb left">
+                            <div class="sb-mid white left"></div>
+                        </div>
+                        <div class="content-footer-logo">
+                            <img src="" alt=""/>
+                        </div>
+                    </div>
+                    <div class="navigation-footer">
+						<?php wp_nav_menu( array(
+							'menu' => 'Footer navigation'
+						)); ?>
                     </div>
                 </div>
                 <div class="footer-right-navigation">
-                    <button>Contactez-nous</button>
-                    <div class="footer-navigation-picto">
-                        <img src="" alt="fb">
-                        <img src="" alt="twitter">
+                    <div class="footer-contact">
+                        <a href="#">Contactez-nous</a>
+                    </div>
+                    <div class="social-icon">
+                        <a href="#" class="social-element"></a>
+                        <a href="#" class="social-element"></a>
                     </div>
                 </div>
 			</div>
